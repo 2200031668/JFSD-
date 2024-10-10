@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Chat | CareerLink</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f8fa;
+            color: #333;
+            display: flex;
+        }
+
+        /* Sidebar (Left Side Dashboard Menu) */
+        .sidebar {
+            width: 250px;
+            background-color: #002147;
+            color: white;
+            padding-top: 20px;
+            position: fixed;
+            height: 100%;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #00a86b;
+            padding-bottom: 15px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px 20px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar ul li a:hover, .sidebar ul li a.active {
+            background-color: #00a86b;
+            border-radius: 5px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 40px;
+            flex-grow: 1;
+            background-color: white;
+            min-height: 100vh;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .chat-container {
+            max-width: 100%;
+        }
+
+        .chat-content h2 {
+            text-align: center;
+            color: #002147;
+            margin-bottom: 30px;
+        }
+
+        .chat-box {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .chat-message.user {
+            background-color: #d4edda; /* Light green for user */
+            align-self: flex-end; /* Align user messages to the right */
+        }
+
+        .chat-message.agent {
+            background-color: #f1f1f1; /* Light gray for agent */
+            align-self: flex-start; /* Align agent messages to the left */
+        }
+
+        .input-container {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .input-container input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .input-container button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #00a86b;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .input-container button:hover {
+            background-color: #008e5b;
+        }
+
+        /* Smaller Fixed Footer */
+        footer {
+            background-color: #002147;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 250px; /* Align footer with sidebar */
+            right: 0;
+        }
+
+        footer p {
+            font-size: 0.9em;
+            margin: 5px 0;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>CareerLink</h2>
+        <ul>
+            <li><a href="profile.html">Profile Overview</a></li>
+            <li><a href="my-services.html">My Services</a></li>
+            <li><a href="CareerPaths.html">Career Paths</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li><a href="support.html">Customer Support</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="chat-container">
+            <div class="chat-content">
+                <h2>Live Chat</h2>
+
+                <!-- Chat Box -->
+                <div class="chat-box" id="chatBox">
+                    <!-- Chat messages will be appended here -->
+                </div>
+
+                <!-- Input Container -->
+                <div class="input-container">
+                    <input type="text" id="chatInput" placeholder="Type your message here..." />
+                    <button id="sendButton">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 CareerLink. Empowering Connections Across India.</p>
+        <ul>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        // JavaScript to handle chat input
+        document.getElementById('sendButton').addEventListener('click', function() {
+            const chatInput = document.getElementById('chatInput');
+            const chatBox = document.getElementById('chatBox');
+
+            if (chatInput.value.trim()) {
+                // Create user message element
+                const userMessage = document.createElement('div');
+                userMessage.classList.add('chat-message', 'user');
+                userMessage.innerHTML = `<p>${chatInput.value}</p>`;
+                chatBox.appendChild(userMessage);
+
+                // Clear input
+                chatInput.value = '';
+
+                // Simulate agent response after a short delay
+                setTimeout(() => {
+                    const agentMessage = document.createElement('div');
+                    agentMessage.classList.add('chat-message', 'agent');
+                    agentMessage.innerHTML = `<p>Thank you for your message. We will get back to you shortly!</p>`;
+                    chatBox.appendChild(agentMessage);
+                    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+                }, 1000);
+
+                // Scroll to the bottom of the chat box
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        });
+    </script>
+
+</body>
+</html>

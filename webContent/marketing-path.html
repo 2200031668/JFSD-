@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Career Path | CareerLink</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f8fa;
+            color: #333;
+        }
+
+        .container {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Fixed Navbar */
+        .navbar {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #002147;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar .brand {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        .content {
+            margin: 100px auto 80px; /* Adjust margin to avoid overlap with navbar and footer */
+            max-width: 800px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .filters {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #00a86b;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .filters label {
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .filters select {
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            padding: 6px 12px;
+            background-color: #00a86b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .search-button:hover {
+            background-color: #008057;
+        }
+
+        .career-list {
+            margin-top: 20px;
+            display: none; /* Initially hidden */
+        }
+
+        .career-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .no-results {
+            display: none; /* Initially hidden */
+            color: #ff0000; /* Red color for no results */
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .content h1 {
+            color: #002147;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .content a {
+            text-decoration: none;
+            color: #00a86b;
+            font-weight: bold;
+            border: 2px solid #00a86b;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .content a:hover {
+            background-color: #00a86b;
+            color: white;
+        }
+
+        /* Fixed Footer */
+        footer {
+            background-color: #002147;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-size: 0.8em;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Additional Styles */
+        h2 {
+            color: #002147;
+            margin-top: 30px;
+        }
+
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Fixed Navbar -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="brand">CareerLink</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section>
+        <div class="content">
+            <h1>Marketing Career Path</h1>
+
+            <!-- Career Filters -->
+            <div class="filters">
+                <label for="job-role">Job Role:</label>
+                <select id="job-role">
+                    <option value="all">All</option>
+                    <option value="digital-marketer">Digital Marketer</option>
+                    <option value="content-marketer">Content Marketer</option>
+                    <option value="seo-specialist">SEO Specialist</option>
+                    <option value="brand-manager">Brand Manager</option>
+                </select>
+            </div>
+
+            <div class="filters">
+                <label for="experience-level">Experience Level:</label>
+                <select id="experience-level">
+                    <option value="all">All</option>
+                    <option value="entry-level">Entry Level</option>
+                    <option value="mid-level">Mid Level</option>
+                    <option value="senior-level">Senior Level</option>
+                </select>
+            </div>
+
+            <div class="filters">
+                <label for="salary-range">Salary Range (INR):</label>
+                <select id="salary-range">
+                    <option value="all">All</option>
+                    <option value="0-500000">Under ₹5,00,000</option>
+                    <option value="500000-1000000">₹5,00,000 - ₹10,00,000</option>
+                    <option value="1000000-1500000">₹10,00,000 - ₹15,00,000</option>
+                    <option value="1500000">Over ₹15,00,000</option>
+                </select>
+            </div>
+
+            <button class="search-button" id="search-button">Search</button>
+
+            <div class="career-list" id="career-list">
+                <!-- Digital Marketer -->
+                <div class="career-item" data-role="digital-marketer" data-level="entry-level" data-salary="400000">
+                    <h3>Digital Marketer (Entry Level)</h3>
+                    <p>Entry-level digital marketers assist in the creation and implementation of online marketing campaigns.</p>
+                    <p><strong>Skills Required:</strong> SEO, social media marketing, content creation.</p>
+                    <p><strong>Potential Salary:</strong> ₹3,50,000 - ₹4,50,000 per annum.</p>
+                </div>
+                <div class="career-item" data-role="digital-marketer" data-level="mid-level" data-salary="800000">
+                    <h3>Digital Marketer (Mid Level)</h3>
+                    <p>Mid-level digital marketers develop marketing strategies and oversee digital marketing efforts.</p>
+                    <p><strong>Skills Required:</strong> Analytics, campaign management, digital strategy.</p>
+                    <p><strong>Potential Salary:</strong> ₹6,00,000 - ₹10,00,000 per annum.</p>
+                </div>
+
+                <!-- Content Marketer -->
+                <div class="career-item" data-role="content-marketer" data-level="entry-level" data-salary="350000">
+                    <h3>Content Marketer (Entry Level)</h3>
+                    <p>Entry-level content marketers create and distribute content to engage target audiences.</p>
+                    <p><strong>Skills Required:</strong> Writing, research, content management systems.</p>
+                    <p><strong>Potential Salary:</strong> ₹3,00,000 - ₹4,00,000 per annum.</p>
+                </div>
+                <div class="career-item" data-role="content-marketer" data-level="mid-level" data-salary="700000">
+                    <h3>Content Marketer (Mid Level)</h3>
+                    <p>Mid-level content marketers strategize and oversee content creation efforts across platforms.</p>
+                    <p><strong>Skills Required:</strong> SEO, storytelling, audience analysis.</p>
+                    <p><strong>Potential Salary:</strong> ₹5,00,000 - ₹8,00,000 per annum.</p>
+                </div>
+
+                <!-- SEO Specialist -->
+                <div class="career-item" data-role="seo-specialist" data-level="entry-level" data-salary="400000">
+                    <h3>SEO Specialist (Entry Level)</h3>
+                    <p>Entry-level SEO specialists optimize websites to improve search engine rankings.</p>
+                    <p><strong>Skills Required:</strong> Keyword research, on-page optimization, analytics.</p>
+                    <p><strong>Potential Salary:</strong> ₹3,50,000 - ₹5,00,000 per annum.</p>
+                </div>
+                <div class="career-item" data-role="seo-specialist" data-level="mid-level" data-salary="800000">
+                    <h3>SEO Specialist (Mid Level)</h3>
+                    <p>Mid-level SEO specialists manage SEO strategies and improve website visibility.</p>
+                    <p><strong>Skills Required:</strong> Technical SEO, backlink strategies, performance tracking.</p>
+                    <p><strong>Potential Salary:</strong> ₹6,00,000 - ₹10,00,000 per annum.</p>
+                </div>
+
+                <!-- Brand Manager -->
+                <div class="career-item" data-role="brand-manager" data-level="mid-level" data-salary="1200000">
+                    <h3>Brand Manager (Mid Level)</h3>
+                    <p>Brand managers develop and execute strategies to enhance brand identity and market presence.</p>
+                    <p><strong>Skills Required:</strong> Brand strategy, consumer insights, market analysis.</p>
+                    <p><strong>Potential Salary:</strong> ₹10,00,000 - ₹15,00,000 per annum.</p>
+                </div>
+            </div>
+
+            <div class="no-results" id="no-results">Data Not Found</div>
+
+            <h2>Required Qualifications</h2>
+            <p>Most marketing positions require at least a bachelor's degree in marketing, communications, or a related field. Some roles, particularly in digital marketing, may benefit from certifications or specialized training.</p>
+
+            <h2>Skills</h2>
+            <ul>
+                <li>Strong communication and interpersonal skills</li>
+                <li>Creativity and innovative thinking</li>
+                <li>Analytical skills for data interpretation</li>
+                <li>Project management and organizational abilities</li>
+                <li>Proficiency in digital marketing tools and platforms</li>
+            </ul>
+
+            <h2>Education</h2>
+            <p>A degree in marketing, business administration, or communications is typically required. Advanced degrees (e.g., MBA) can enhance career prospects, especially for managerial roles.</p>
+
+            <h2>Drawbacks</h2>
+            <p>Challenges in the marketing industry include high competition for positions, the need for continual adaptation to market trends, and sometimes high-pressure environments to meet targets.</p>
+
+            <h2>Benefits of the Marketing Industry</h2>
+            <p>The marketing sector offers several advantages, including:</p>
+            <ul>
+                <li>Diverse career paths and specializations</li>
+                <li>Creative opportunities and challenges</li>
+                <li>Ability to work across various industries</li>
+                <li>High demand for skilled marketers in the digital age</li>
+            </ul>
+
+            <h3>Learn More about Marketing Careers</h3>
+            <p>Explore additional resources to understand marketing career opportunities:</p>
+            <ul>
+                
+                <li><a href="https://www.udemy.com/courses/search/?q=marketing" target="_blank">Marketing Courses - Udemy</a></li>
+               <li><a href="https://www.coursera.org/courses?query=marketing" target="_blank">Marketing Courses - Coursera</a></li>
+                <li><a href="https://www.google.com/search?q=marketing+career+path" target="_blank">Google Search: Marketing Career Path</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Fixed Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CareerLink. Empowering Connections Across India.</p>
+            <ul>
+                <li><a href="ContactUs.html">Contact Us</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('search-button').addEventListener('click', function () {
+            const jobRole = document.getElementById('job-role').value;
+            const experienceLevel = document.getElementById('experience-level').value;
+            const salaryRange = document.getElementById('salary-range').value;
+
+            const careerItems = document.querySelectorAll('.career-item');
+            let resultsFound = false;
+
+            // Hide career list initially
+            const careerList = document.getElementById('career-list');
+            const noResults = document.getElementById('no-results');
+            careerList.style.display = 'none';
+            noResults.style.display = 'none'; // Hide "Data Not Found" message initially
+
+            careerItems.forEach(item => {
+                const role = item.getAttribute('data-role');
+                const level = item.getAttribute('data-level');
+                const salary = parseInt(item.getAttribute('data-salary'), 10);
+
+                let show = true;
+
+                // Filter by job role
+                if (jobRole !== 'all' && role !== jobRole) {
+                    show = false;
+                }
+
+                // Filter by experience level
+                if (experienceLevel !== 'all' && level !== experienceLevel) {
+                    show = false;
+                }
+
+                // Filter by salary range
+                if (salaryRange !== 'all') {
+                    const [min, max] = salaryRange.split('-').map(Number);
+                    if (max) {
+                        if (salary < min || salary > max) {
+                            show = false;
+                        }
+                    } else {
+                        if (salary <= min) {
+                            show = false;
+                        }
+                    }
+                }
+
+                // Show or hide the item based on the filter
+                item.style.display = show ? 'block' : 'none';
+                if (show) resultsFound = true; // Track if any results are found
+            });
+
+            // Show the career list if any results are found
+            careerList.style.display = resultsFound ? 'block' : 'none';
+
+            // Show "Data Not Found" message if no results are found
+            noResults.style.display = resultsFound ? 'none' : 'block';
+        });
+    </script>
+
+</body>
+
+</html>

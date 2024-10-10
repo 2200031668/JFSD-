@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Paths | CareerLink</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f8fa;
+            color: #333;
+            display: flex;
+        }
+
+        /* Sidebar (Left Side Dashboard Menu) */
+        .sidebar {
+            width: 250px;
+            background-color: #002147;
+            color: white;
+            padding-top: 20px;
+            position: fixed;
+            height: 100%;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #00a86b;
+            padding-bottom: 15px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px 20px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar ul li a:hover, .sidebar ul li a.active {
+            background-color: #00a86b;
+            border-radius: 5px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 40px;
+            flex-grow: 1;
+            background-color: white;
+            min-height: 100vh;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .career-paths-container {
+            max-width: 100%;
+        }
+
+        .career-paths-content h2 {
+            text-align: center;
+            color: #002147;
+            margin-bottom: 30px;
+        }
+
+        .career-path {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        .career-path h3 {
+            color: #00a86b;
+            margin-bottom: 10px;
+        }
+
+        .career-path p {
+            margin: 10px 0;
+        }
+
+        .career-path a {
+            color: #002147;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .career-path a:hover {
+            text-decoration: underline;
+        }
+
+        /* Smaller Fixed Footer */
+        footer {
+            background-color: #002147;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 250px; /* Align footer with sidebar */
+            right: 0;
+        }
+
+        footer p {
+            font-size: 0.9em;
+            margin: 5px 0;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>CareerLink</h2>
+        <ul>
+            <li><a href="profile.html">Profile Overview</a></li>
+            <li><a href="my-services.html">My Services</a></li>
+            <li><a href="CareerPaths.html" class="active">Career Paths</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li><a href="support.html">Customer Support</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="career-paths-container">
+            <div class="career-paths-content">
+                <h2>Explore Career Paths</h2>
+
+                <!-- Example Career Path 1 -->
+                <div class="career-path">
+                    <h3>Technology & IT</h3>
+                    <p>This path includes careers in software development, IT support, cybersecurity, data analysis, and more. Technology is ever-evolving, and skilled professionals are in high demand.</p>
+                    <a href="tech-path.html">Learn More</a>
+                </div>
+
+                <!-- Example Career Path 2 -->
+                <div class="career-path">
+                    <h3>Finance</h3>
+                    <p>Careers in finance encompass roles in investment banking, financial planning, accounting, and risk management. Financial professionals help individuals and organizations manage their money.</p>
+                    <a href="finance-path.html">Learn More</a>
+                </div>
+
+                <!-- Example Career Path 3 -->
+                <div class="career-path">
+                    <h3>Marketing</h3>
+                    <p>Marketing professionals focus on creating and delivering messages to potential customers. Careers include digital marketing, brand management, and market research.</p>
+                    <a href="marketing-path.html">Learn More</a>
+                </div>
+
+                <!-- Example Career Path 4 -->
+                <div class="career-path">
+                    <h3>Design</h3>
+                    <p>This path includes graphic design, UX/UI design, product design, and more. Designers are essential in creating appealing visuals and user experiences.</p>
+                    <a href="design-path.html">Learn More</a>
+                </div>
+
+                <!-- Example Career Path 5 -->
+                <div class="career-path">
+                    <h3>Healthcare</h3>
+                    <p>Healthcare careers include doctors, nurses, pharmacists, and healthcare administration. This field focuses on providing care and improving patient outcomes.</p>
+                    <a href="healthcare-path.html">Learn More</a>
+                </div>
+
+                <!-- Example Career Path 6 -->
+                <div class="career-path">
+                    <h3>Others</h3>
+                    <p>There are many other career paths including education, hospitality, trades, and more. Each offers unique opportunities for growth and satisfaction.</p>
+                    <a href="other-paths.html">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 CareerLink. Empowering Connections Across India.</p>
+        <ul>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>

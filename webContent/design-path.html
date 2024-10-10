@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Career Path | CareerLink</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f8fa;
+            color: #333;
+        }
+
+        .container {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Fixed Navbar */
+        .navbar {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #002147;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar .brand {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        .content {
+            margin: 100px auto 80px; /* Adjust margin to avoid overlap with navbar and footer */
+            max-width: 800px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .filters {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #00a86b;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .filters label {
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .filters select {
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            padding: 6px 12px;
+            background-color: #00a86b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .search-button:hover {
+            background-color: #008057;
+        }
+
+        .career-list {
+            margin-top: 20px;
+            display: none; /* Initially hidden */
+        }
+
+        .career-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .no-results {
+            display: none; /* Initially hidden */
+            color: #ff0000; /* Red color for no results */
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .content h1 {
+            color: #002147;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .content a {
+            text-decoration: none;
+            color: #00a86b;
+            font-weight: bold;
+            border: 2px solid #00a86b;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .content a:hover {
+            background-color: #00a86b;
+            color: white;
+        }
+
+        /* Fixed Footer */
+        footer {
+            background-color: #002147;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-size: 0.8em;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Additional Styles */
+        h2 {
+            color: #002147;
+            margin-top: 30px;
+        }
+
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Fixed Navbar -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="brand">CareerLink</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section>
+        <div class="content">
+            <h1>Design Career Path</h1>
+
+            <!-- Career Filters -->
+            <div class="filters">
+                <label for="job-role">Job Role:</label>
+                <select id="job-role">
+                    <option value="all">All</option>
+                    <option value="graphic-designer">Graphic Designer</option>
+                    <option value="ux-designer">UX Designer</option>
+                    <option value="ui-designer">UI Designer</option>
+                    <option value="product-designer">Product Designer</option>
+                </select>
+            </div>
+
+            <div class="filters">
+                <label for="experience-level">Experience Level:</label>
+                <select id="experience-level">
+                    <option value="all">All</option>
+                    <option value="entry-level">Entry Level</option>
+                    <option value="mid-level">Mid Level</option>
+                    <option value="senior-level">Senior Level</option>
+                </select>
+            </div>
+
+            <div class="filters">
+                <label for="salary-range">Salary Range (INR):</label>
+                <select id="salary-range">
+                    <option value="all">All</option>
+                    <option value="0-500000">Under ₹5,00,000</option>
+                    <option value="500000-1000000">₹5,00,000 - ₹10,00,000</option>
+                    <option value="1000000-1500000">₹10,00,000 - ₹15,00,000</option>
+                    <option value="1500000">Over ₹15,00,000</option>
+                </select>
+            </div>
+
+            <button class="search-button" id="search-button">Search</button>
+
+            <div class="career-list" id="career-list">
+                <!-- Graphic Designer -->
+                <div class="career-item" data-role="graphic-designer" data-level="entry-level" data-salary="400000">
+                    <h3>Graphic Designer (Entry Level)</h3>
+                    <p>Entry-level graphic designers create visual concepts to communicate ideas that inspire and inform consumers.</p>
+                    <p><strong>Skills Required:</strong> Adobe Creative Suite, typography, layout design.</p>
+                    <p><strong>Potential Salary:</strong> ₹3,50,000 - ₹4,50,000 per annum.</p>
+                </div>
+                <div class="career-item" data-role="graphic-designer" data-level="mid-level" data-salary="800000">
+                    <h3>Graphic Designer (Mid Level)</h3>
+                    <p>Mid-level graphic designers work on branding and marketing materials while managing projects and clients.</p>
+                    <p><strong>Skills Required:</strong> Branding, client communication, project management.</p>
+                    <p><strong>Potential Salary:</strong> ₹6,00,000 - ₹10,00,000 per annum.</p>
+                </div>
+
+                <!-- UX Designer -->
+                <div class="career-item" data-role="ux-designer" data-level="entry-level" data-salary="500000">
+                    <h3>UX Designer (Entry Level)</h3>
+                    <p>Entry-level UX designers focus on enhancing user satisfaction through improved usability and accessibility.</p>
+                    <p><strong>Skills Required:</strong> Wireframing, prototyping, user research.</p>
+                    <p><strong>Potential Salary:</strong> ₹4,50,000 - ₹5,50,000 per annum.</p>
+                </div>
+                <div class="career-item" data-role="ux-designer" data-level="mid-level" data-salary="900000">
+                    <h3>UX Designer (Mid Level)</h3>
+                    <p>Mid-level UX designers lead projects, conducting user research and creating wireframes to optimize user experience.</p>
+                    <p><strong>Skills Required:</strong> User journey mapping, usability testing, interaction design.</p>
+                    <p><strong>Potential Salary:</strong> ₹7,00,000 - ₹12,00,000 per annum.</p>
+                </div>
+
+                <!-- UI Designer -->
+                <div class="career-item" data-role="ui-designer" data-level="entry-level" data-salary="450000">
+                    <h3>UI Designer (Entry Level)</h3>
+                    <p>Entry-level UI designers create visually appealing interfaces for websites and applications.</p>
+                    <p><strong>Skills Required:</strong> Visual design, color theory, typography.</p>
+                    <p><strong>Potential Salary:</strong> ₹4,00,000 - ₹5,00,000 per annum.</p>
+                </div>
+                <div class="career-item" data-role="ui-designer" data-level="mid-level" data-salary="850000">
+                    <h3>UI Designer (Mid Level)</h3>
+                    <p>Mid-level UI designers collaborate with UX teams to enhance user experience through effective design.</p>
+                    <p><strong>Skills Required:</strong> Prototyping tools, design systems, user interface patterns.</p>
+                    <p><strong>Potential Salary:</strong> ₹6,50,000 - ₹11,00,000 per annum.</p>
+                </div>
+
+                <!-- Product Designer -->
+                <div class="career-item" data-role="product-designer" data-level="mid-level" data-salary="1200000">
+                    <h3>Product Designer (Mid Level)</h3>
+                    <p>Product designers create innovative products by combining user experience and design aesthetics.</p>
+                    <p><strong>Skills Required:</strong> Product lifecycle, prototyping, user testing.</p>
+                    <p><strong>Potential Salary:</strong> ₹10,00,000 - ₹15,00,000 per annum.</p>
+                </div>
+            </div>
+
+            <div class="no-results" id="no-results">Data Not Found</div>
+
+            <h2>Required Qualifications</h2>
+            <p>Most design positions require at least a bachelor's degree in design, fine arts, or a related field. Some roles may also benefit from a portfolio showcasing your work.</p>
+
+            <h2>Skills</h2>
+            <ul>
+                <li>Creativity and innovative thinking</li>
+                <li>Proficiency in design software (e.g., Adobe Creative Suite, Sketch)</li>
+                <li>Strong communication and collaboration skills</li>
+                <li>Attention to detail and aesthetics</li>
+                <li>Problem-solving abilities</li>
+            </ul>
+
+            <h2>Education</h2>
+            <p>A degree in design, graphic design, or fine arts is typically required. Specialized courses and certifications in specific design software can be advantageous.</p>
+
+            <h2>Drawbacks</h2>
+            <p>Challenges in the design industry include high competition for positions, the need for continuous learning to keep up with design trends, and sometimes subjective feedback from clients.</p>
+
+            <h2>Benefits of the Design Industry</h2>
+            <p>The design sector offers several advantages, including:</p>
+            <ul>
+                <li>Diverse career paths across various industries</li>
+                <li>Opportunities for creative expression</li>
+                <li>High demand for skilled designers in a digital world</li>
+                <li>Ability to work as a freelancer or in-house</li>
+            </ul>
+
+            <h3>Learn More about Design Careers</h3>
+            <p>Explore additional resources to understand design career opportunities:</p>
+            <ul>
+               
+               
+                <li><a href="https://www.udemy.com/courses/search/?q=design" target="_blank">Design Courses - Udemy</a></li>
+                <li><a href="https://www.coursera.org/courses?query=design" target="_blank">Design Courses - Coursera</a></li>
+                <li><a href="https://www.google.com/search?q=design+career+path" target="_blank">Google Search: Design Career Path</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Fixed Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CareerLink. Empowering Connections Across India.</p>
+            <ul>
+                <li><a href="ContactUs.html">Contact Us</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('search-button').addEventListener('click', function () {
+            const jobRole = document.getElementById('job-role').value;
+            const experienceLevel = document.getElementById('experience-level').value;
+            const salaryRange = document.getElementById('salary-range').value;
+
+            const careerItems = document.querySelectorAll('.career-item');
+            let resultsFound = false;
+
+            // Hide career list initially
+            const careerList = document.getElementById('career-list');
+            const noResults = document.getElementById('no-results');
+            careerList.style.display = 'none';
+            noResults.style.display = 'none'; // Hide "Data Not Found" message initially
+
+            careerItems.forEach(item => {
+                const role = item.getAttribute('data-role');
+                const level = item.getAttribute('data-level');
+                const salary = parseInt(item.getAttribute('data-salary'), 10);
+
+                let show = true;
+
+                // Filter by job role
+                if (jobRole !== 'all' && role !== jobRole) {
+                    show = false;
+                }
+
+                // Filter by experience level
+                if (experienceLevel !== 'all' && level !== experienceLevel) {
+                    show = false;
+                }
+
+                // Filter by salary range
+                if (salaryRange !== 'all') {
+                    const [min, max] = salaryRange.split('-').map(Number);
+                    if (max) {
+                        if (salary < min || salary > max) {
+                            show = false;
+                        }
+                    } else {
+                        if (salary <= min) {
+                            show = false;
+                        }
+                    }
+                }
+
+                // Show or hide the item based on the filter
+                item.style.display = show ? 'block' : 'none';
+                if (show) resultsFound = true; // Track if any results are found
+            });
+
+            // Show the career list if any results are found
+            careerList.style.display = resultsFound ? 'block' : 'none';
+
+            // Show "Data Not Found" message if no results are found
+            noResults.style.display = resultsFound ? 'none' : 'block';
+        });
+    </script>
+
+</body>
+
+</html>

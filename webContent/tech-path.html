@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Career Path | CareerLink</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f8fa;
+            color: #333;
+        }
+
+        .container {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Fixed Navbar */
+        .navbar {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #002147;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar .brand {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        .content {
+            margin: 100px auto 80px; /* Adjust margin to avoid overlap with navbar and footer */
+            max-width: 800px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .filters {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #00a86b;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .filters label {
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .filters select {
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            padding: 6px 12px;
+            background-color: #00a86b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .search-button:hover {
+            background-color: #008057;
+        }
+
+        .career-list {
+            margin-top: 20px;
+            display: none; /* Initially hidden */
+        }
+
+        .career-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .no-results {
+            display: none; /* Initially hidden */
+            color: #ff0000; /* Red color for no results */
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .content h1 {
+            color: #002147;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .content a {
+            text-decoration: none;
+            color: #00a86b;
+            font-weight: bold;
+            border: 2px solid #00a86b;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .content a:hover {
+            background-color: #00a86b;
+            color: white;
+        }
+
+        /* Fixed Footer */
+        footer {
+            background-color: #002147;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-size: 0.8em;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Additional Styles */
+        h2 {
+            color: #002147;
+            margin-top: 30px;
+        }
+
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Fixed Navbar -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="brand">CareerLink</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section>
+        <div class="content">
+            <h1>Technology Career Path</h1>
+
+            <!-- Career Filters -->
+            <div class="filters">
+                <label for="job-role">Job Role:</label>
+                <select id="job-role">
+                    <option value="all">All</option>
+                    <option value="software-developer">Software Developer</option>
+                    <option value="data-scientist">Data Scientist</option>
+                    <option value="system-administrator">System Administrator</option>
+                    <option value="web-developer">Web Developer</option>
+                </select>
+            </div>
+
+            <div class="filters">
+                <label for="experience-level">Experience Level:</label>
+                <select id="experience-level">
+                    <option value="all">All</option>
+                    <option value="entry-level">Entry Level</option>
+                    <option value="mid-level">Mid Level</option>
+                    <option value="senior-level">Senior Level</option>
+                </select>
+            </div>
+
+            <div class="filters">
+                <label for="salary-range">Salary Range (INR):</label>
+                <select id="salary-range">
+                    <option value="all">All</option>
+                    <option value="0-500000">Under ₹5,00,000</option>
+                    <option value="500000-1000000">₹5,00,000 - ₹10,00,000</option>
+                    <option value="1000000-1500000">₹10,00,000 - ₹15,00,000</option>
+                    <option value="1500000">Over ₹15,00,000</option>
+                </select>
+            </div>
+
+            <button class="search-button" id="search-button">Search</button>
+
+            <div class="career-list" id="career-list">
+                <!-- Software Developer -->
+                <div class="career-item" data-role="software-developer" data-level="entry-level" data-salary="600000">
+                    <h3>Software Developer (Entry Level)</h3>
+                    <p>Entry-level software developers work on coding and debugging applications.</p>
+                    <p><strong>Skills Required:</strong> Programming languages (Java, Python), problem-solving.</p>
+                    <p><strong>Potential Salary:</strong> ₹4,00,000 - ₹6,00,000 per annum.</p>
+                </div>
+                <div class="career-item" data-role="software-developer" data-level="mid-level" data-salary="1000000">
+                    <h3>Software Developer (Mid Level)</h3>
+                    <p>Mid-level software developers manage projects and collaborate with teams.</p>
+                    <p><strong>Skills Required:</strong> Full-stack development, project management, communication.</p>
+                    <p><strong>Potential Salary:</strong> ₹8,00,000 - ₹12,00,000 per annum.</p>
+                </div>
+
+                <!-- Data Scientist -->
+                <div class="career-item" data-role="data-scientist" data-level="entry-level" data-salary="700000">
+                    <h3>Data Scientist (Entry Level)</h3>
+                    <p>Entry-level data scientists analyze data and develop insights.</p>
+                    <p><strong>Skills Required:</strong> Data analysis, machine learning, statistical modeling.</p>
+                    <p><strong>Potential Salary:</strong> ₹5,00,000 - ₹7,00,000 per annum.</p>
+                </div>
+                <div class="career-item" data-role="data-scientist" data-level="mid-level" data-salary="1200000">
+                    <h3>Data Scientist (Mid Level)</h3>
+                    <p>Mid-level data scientists build predictive models and drive data strategy.</p>
+                    <p><strong>Skills Required:</strong> Advanced analytics, SQL, programming (R, Python).</p>
+                    <p><strong>Potential Salary:</strong> ₹10,00,000 - ₹15,00,000 per annum.</p>
+                </div>
+
+                <!-- System Administrator -->
+                <div class="career-item" data-role="system-administrator" data-level="entry-level" data-salary="500000">
+                    <h3>System Administrator (Entry Level)</h3>
+                    <p>Entry-level system administrators manage and troubleshoot IT systems.</p>
+                    <p><strong>Skills Required:</strong> Networking, system configuration, troubleshooting.</p>
+                    <p><strong>Potential Salary:</strong> ₹3,50,000 - ₹5,00,000 per annum.</p>
+                </div>
+
+                <!-- Web Developer -->
+                <div class="career-item" data-role="web-developer" data-level="entry-level" data-salary="600000">
+                    <h3>Web Developer (Entry Level)</h3>
+                    <p>Entry-level web developers create and maintain websites.</p>
+                    <p><strong>Skills Required:</strong> HTML, CSS, JavaScript, responsive design.</p>
+                    <p><strong>Potential Salary:</strong> ₹4,00,000 - ₹6,00,000 per annum.</p>
+                </div>
+            </div>
+
+            <div class="no-results" id="no-results">Data Not Found</div>
+
+            <h2>Required Qualifications</h2>
+            <p>Most technology careers require at least a bachelor's degree in computer science, information technology, or a related field. Some positions, especially in data science and software development, may require advanced degrees or specialized certifications.</p>
+
+            <h2>Skills</h2>
+            <ul>
+                <li>Programming languages (Java, Python, C++)</li>
+                <li>Problem-solving and analytical thinking</li>
+                <li>Data analysis and interpretation</li>
+                <li>Attention to detail</li>
+                <li>Collaboration and teamwork</li>
+            </ul>
+
+            <h2>Education</h2>
+            <p>A degree in computer science, information technology, or related fields is typically required. Certifications in specialized areas (e.g., AWS, Cisco, PMP) can enhance career prospects.</p>
+
+            <h2>Drawbacks</h2>
+            <p>Some challenges in technology careers include long working hours, the need for continuous learning due to rapid technological changes, and the potential for high-stress environments.</p>
+
+            <h2>Benefits of the Technology Industry</h2>
+            <p>The technology sector offers numerous benefits, including:</p>
+            <ul>
+                <li>High demand for skilled professionals</li>
+                <li>Competitive salaries and benefits</li>
+                <li>Opportunities for remote work</li>
+                <li>Innovative and dynamic work environments</li>
+            </ul>
+
+            <h3>Learn More about Technology Careers</h3>
+            <p>Explore additional resources to understand technology career opportunities:</p>
+            <ul>
+                <li><a href="https://www.codecademy.com/catalog/subject/computer-science" target="_blank">Computer Science Courses - Codecademy</a></li>
+                <li><a href="https://www.coursera.org/courses?query=technology%20careers" target="_blank">Technology Careers - Coursera</a></li>
+                <li><a href="https://www.google.com/search?q=technology+career+path" target="_blank">Google Search: Technology Career Path</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Fixed Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CareerLink. Empowering Connections Across India.</p>
+            <ul>
+                <li><a href="ContactUs.html">Contact Us</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('search-button').addEventListener('click', function () {
+            const jobRole = document.getElementById('job-role').value;
+            const experienceLevel = document.getElementById('experience-level').value;
+            const salaryRange = document.getElementById('salary-range').value;
+
+            const careerItems = document.querySelectorAll('.career-item');
+            let resultsFound = false;
+
+            // Hide career list initially
+            const careerList = document.getElementById('career-list');
+            const noResults = document.getElementById('no-results');
+            careerList.style.display = 'none';
+            noResults.style.display = 'none'; // Hide "Data Not Found" message initially
+
+            careerItems.forEach(item => {
+                const role = item.getAttribute('data-role');
+                const level = item.getAttribute('data-level');
+                const salary = parseInt(item.getAttribute('data-salary'), 10);
+
+                let show = true;
+
+                // Filter by job role
+                if (jobRole !== 'all' && role !== jobRole) {
+                    show = false;
+                }
+
+                // Filter by experience level
+                if (experienceLevel !== 'all' && level !== experienceLevel) {
+                    show = false;
+                }
+
+                // Filter by salary range
+                if (salaryRange !== 'all') {
+                    const [min, max] = salaryRange.split('-').map(Number);
+                    if (max) {
+                        if (salary < min || salary > max) {
+                            show = false;
+                        }
+                    } else {
+                        if (salary <= min) {
+                            show = false;
+                        }
+                    }
+                }
+
+                // Show or hide the item based on the filter
+                item.style.display = show ? 'block' : 'none';
+                if (show) resultsFound = true; // Track if any results are found
+            });
+
+            // Show the career list if any results are found
+            careerList.style.display = resultsFound ? 'block' : 'none';
+
+            // Show "Data Not Found" message if no results are found
+            noResults.style.display = resultsFound ? 'none' : 'block';
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Setup | CareerLink</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f8fa;
+            color: #333;
+            display: flex;
+        }
+
+        /* Sidebar (Left Side Dashboard Menu) */
+        .sidebar {
+            width: 250px;
+            background-color: #002147;
+            color: white;
+            padding-top: 20px;
+            position: fixed;
+            height: 100%;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #00a86b;
+            padding-bottom: 15px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px 20px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar ul li a:hover, .sidebar ul li a.active {
+            background-color: #00a86b;
+            border-radius: 5px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 40px;
+            flex-grow: 1;
+            background-color: white;
+            min-height: 100vh;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .profile-container {
+            max-width: 100%;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-header h2 {
+            color: #002147;
+        }
+
+        .profile-details {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        .profile-details h3 {
+            margin-bottom: 10px;
+        }
+
+        .profile-details input, .profile-details select, .profile-details textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit-button {
+            background-color: #00a86b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .submit-button:hover {
+            background-color: #008e5b;
+        }
+
+        /* Smaller Fixed Footer */
+        footer {
+            background-color: #002147;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 250px; /* Align footer with sidebar */
+            right: 0;
+        }
+
+        footer p {
+            font-size: 0.9em;
+            margin: 5px 0;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>CareerLink</h2>
+        <ul>
+            <li><a href="profile.html" class="active">Profile Setup</a></li>
+            <li><a href="my-services.html">My Services</a></li>
+            <li><a href="CareerPaths.html">Career Paths</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li><a href="support.html">Customer Support</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="profile-container">
+            <div class="profile-header">
+                <h2>Complete Your Profile</h2>
+            </div>
+
+            <!-- Profile Details Form -->
+            <form class="profile-details">
+                <h3>Personal Information</h3>
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" placeholder="Enter your location" required>
+
+                <h3>Career Information</h3>
+                <label for="jobTitle">Current Job Title:</label>
+                <input type="text" id="jobTitle" placeholder="Enter your job title" required>
+
+                <label for="experienceLevel">Experience Level:</label>
+                <select id="experienceLevel" required>
+                    <option value="" disabled selected>Select your experience level</option>
+                    <option value="Entry-level">Entry-level</option>
+                    <option value="Mid-level">Mid-level</option>
+                    <option value="Senior-level">Senior-level</option>
+                </select>
+
+                <label for="skills">Skills:</label>
+                <textarea id="skills" placeholder="List your skills (comma separated)" rows="3"></textarea>
+
+                <label for="interests">Interests:</label>
+                <textarea id="interests" placeholder="List your interests (comma separated)" rows="3"></textarea>
+
+                <button type="submit" class="submit-button">Save Profile</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 CareerLink. Empowering Connections Across India.</p>
+        <ul>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>

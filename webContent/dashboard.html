@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | CareerLink</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f8fa;
+            color: #333;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Sidebar (Left Side Dashboard Menu) */
+        .sidebar {
+            width: 250px;
+            background-color: #002147;
+            color: white;
+            padding-top: 20px;
+            position: fixed;
+            height: 100%;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #00a86b;
+            padding-bottom: 15px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px 20px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #00a86b;
+            border-radius: 5px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 40px;
+            flex-grow: 1;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .dashboard-header h2 {
+            color: #002147;
+            font-size: 2em;
+        }
+
+        .recommendations-section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .recommendations-section h3 {
+            color: #002147;
+            margin-bottom: 20px;
+        }
+
+        .recommendation-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .recommendation-card h4 {
+            margin-bottom: 10px;
+            color: #00a86b;
+        }
+
+        .recommendation-card p {
+            color: #666;
+        }
+
+        /* Smaller Fixed Footer */
+        footer {
+            background-color: #002147;
+            color: white;
+            padding: 5px; /* Reduced padding */
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-size: 0.7em; /* Smaller font size */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin-right: 10px; /* Reduced gap */
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>CareerLink</h2>
+        <ul>
+            <li><a href="profile.html">Profile Overview</a></li>
+            <li><a href="my-services.html">My Services</a></li>
+            <li><a href="CareerPaths.html">Career Paths</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li><a href="support.html">Customer Support</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="dashboard-header">
+            <h2>Welcome to Your Dashboard</h2>
+        </div>
+
+        <!-- Recommendations Section -->
+        <div class="recommendations-section">
+            <h3>Career Recommendations</h3>
+
+            <!-- Recommendation Card 1 -->
+            <div class="recommendation-card">
+                <h4>Explore a Career in Data Science</h4>
+                <p>Data science is one of the fastest-growing fields today, offering opportunities in machine learning, artificial intelligence, and big data analytics. Learn how to get started!</p>
+            </div>
+
+            <!-- Recommendation Card 2 -->
+            <div class="recommendation-card">
+                <h4>Marketing Manager Positions Available</h4>
+                <p>Explore job opportunities in the marketing industry. Companies are looking for creative minds to manage brand growth, digital marketing campaigns, and customer relationships.</p>
+            </div>
+
+            <!-- Recommendation Card 3 -->
+            <div class="recommendation-card">
+                <h4>Upskill in Cybersecurity</h4>
+                <p>Cybersecurity experts are in high demand due to increasing digital threats. Explore certifications and courses to strengthen your skills in network security and ethical hacking.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (Smaller & Fixed) -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CareerLink. Empowering Connections Across India.</p>
+            <ul>
+                <li><a href="ContactUs.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>

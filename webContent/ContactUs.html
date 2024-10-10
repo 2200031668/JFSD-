@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | CareerLink</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f8fa;
+            color: #333;
+            padding-top: 100px; /* Space for fixed header */
+            padding-bottom: 40px; /* Space for fixed footer */
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed; /* Fixes the header */
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #002147;
+            padding: 10px 20px;
+            z-index: 1000; /* Ensures it stays above other content */
+        }
+
+        .navbar .brand {
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+            margin-left: 2cm;
+        }
+
+        /* Contact Form Container */
+        .contact-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto; /* Centered content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-container h2 {
+            text-align: center;
+            color: #002147;
+            margin-bottom: 30px;
+        }
+
+        .contact-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-container form input,
+        .contact-container form textarea {
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            outline: none;
+        }
+
+        .contact-container form input:focus,
+        .contact-container form textarea:focus {
+            border-color: #00a86b;
+        }
+
+        .contact-container form textarea {
+            resize: none;
+            height: 150px;
+        }
+
+        .contact-container form button {
+            padding: 12px;
+            background-color: #00a86b;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-container form button:hover {
+            background-color: #00915c;
+        }
+
+        .contact-details {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+
+        .contact-details p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #002147;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            z-index: 1000;
+            font-size: 0.8em;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 5px 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="brand">CareerLink</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Form -->
+    <section>
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <form action="contactsubmit.html" method="POST">
+                <input type="text" name="name" placeholder="Enter your name" required />
+                <input type="email" name="email" placeholder="Enter your email" required />
+                <textarea name="message" placeholder="Enter your message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <div class="contact-details">
+                <p>Email: support@careerlink.com</p>
+                <p>Phone: +91 123 456 7890</p>
+                <p>Address: CareerLink HQ, KL University, Vijaywada, India</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CareerLink. Empowering Connections Across India.</p>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>
